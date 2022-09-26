@@ -1,0 +1,120 @@
+[
+    {
+        "id": "0c294d4d82dfbfe5",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9169d5e98ae129ca",
+        "type": "inject",
+        "z": "0c294d4d82dfbfe5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 100,
+        "wires": [
+            [
+                "90a301f61c5dc613"
+            ]
+        ]
+    },
+    {
+        "id": "fe2a6284f867d76f",
+        "type": "debug",
+        "z": "0c294d4d82dfbfe5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5f37b32af0281551",
+        "type": "image",
+        "z": "0c294d4d82dfbfe5",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": false,
+        "active": true,
+        "pass": false,
+        "outputs": 0,
+        "x": 440,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7304736d653a5b2e",
+        "type": "fileinject",
+        "z": "0c294d4d82dfbfe5",
+        "name": "",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "90a301f61c5dc613"
+            ]
+        ]
+    },
+    {
+        "id": "90a301f61c5dc613",
+        "type": "teachable machine",
+        "z": "0c294d4d82dfbfe5",
+        "name": "",
+        "mode": "online",
+        "modelUrl": "https://teachablemachine.withgoogle.com/models/4qVzo-V33/",
+        "localModel": "teachable_model",
+        "output": "all",
+        "activeThreshold": true,
+        "threshold": 80,
+        "activeMaxResults": true,
+        "maxResults": 3,
+        "passThrough": true,
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "fe2a6284f867d76f"
+            ]
+        ]
+    },
+    {
+        "id": "dbe7a522a4836fbf",
+        "type": "camera",
+        "z": "0c294d4d82dfbfe5",
+        "name": "",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "90a301f61c5dc613",
+                "5f37b32af0281551"
+            ]
+        ]
+    }
+]
